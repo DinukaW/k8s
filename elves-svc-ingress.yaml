@@ -1,27 +1,11 @@
 apiVersion: v1
-kind: Pod
-metadata:
-  name: elves-pod
-  namespace: gondor
-  labels:
-    role: webserver
-spec:
-  containers:
-    - name: web
-      image: nginx
-      ports:
-        - name: web
-          containerPort: 80
-          protocol: TCP
----
-apiVersion: v1
 kind: Service
 metadata:
   name: elves-svc
   namespace: gondor
 spec:
   selector:
-    role: webserver
+    app: webserver
   ports:
     - protocol: TCP
       port: 80
